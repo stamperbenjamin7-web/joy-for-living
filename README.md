@@ -9,10 +9,9 @@
 
 | Campo | Detalle |
 |---|---|
-| **Nombre** | [Tu nombre completo] |
-| **Matrícula** | [Tu número de matrícula] |
-| **Programa** | [Tu carrera/programa] |
-| **Asignatura** | Desarrollo de aplicaciones web en React (solo Front-End) |
+| **Nombre** | [ Benjamin Jair Stamper Alvarez] |
+| **Programa** | [Transformación Digital de Empresas] 
+| **Asignatura** | Desarrollo de aplica Nat en Cloud |
 | **Unidad** | Unidad 2 – Introducción al Front-End con React |
 
 ---
@@ -50,7 +49,7 @@ Joy For Living es una empresa turística ubicada en Aruba especializada en activ
 |---|---|---|
 | **Presencia Digital** | Plataforma web profesional con SEO y consistencia de marca | ✅ Implementado |
 | **Pagos Online** | Stripe, PayPal, tarjetas de crédito/débito | 📅 Planificado |
-| **Autenticación** | Login con Google OAuth, perfiles, historial de reservas | 🟣 Opcional (+1 pt) |
+| **Autenticación** | Login con Google OAuth, perfiles, historial de reservas | 
 
 ### Servicios cubiertos por la aplicación
 
@@ -187,7 +186,7 @@ NEXTAUTH_URL=http://localhost:3000
 
 ---
 
-## 🌐 Despliegue en Vercel (punto extra)
+## 🌐 Despliegue en Vercel 
 
 ### Pasos para desplegar
 
@@ -240,4 +239,4 @@ NEXTAUTH_URL=http://localhost:3000
 
 ---
 
-*Desarrollado para el Taller de la Unidad 2 – Introducción al Front-End con React*
+
