@@ -81,7 +81,7 @@ Joy For Living es una empresa turística ubicada en Aruba especializada en activ
 | **React** | 18 | Biblioteca de UI |
 | **JavaScript** | ES2023 | Lenguaje de programación |
 | **CSS Modules** | – | Estilos con scope local |
-| **next-auth** | 4.x | Autenticación Google (opcional) |
+| **next-auth** | 4.x | Autenticación Google  |
 
 ### Arquitectura del proyecto
 
