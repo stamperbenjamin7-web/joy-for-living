@@ -1,3 +1,5 @@
+import { Suspense } from 'react'
+import { Suspense } from 'react'
 import { BookingSection } from '../../components/sections/BookingSection'
 
 export const metadata = {
@@ -8,7 +10,9 @@ export const metadata = {
 export default function BookingPage() {
   return (
     <div style={{ paddingTop: '5rem' }}>
-      <BookingSection />
+      <Suspense fallback={<div style={{ padding: '4rem', textAlign: 'center', color: 'rgba(255,255,255,0.5)' }}>Loading...</div>}>
+        <BookingSection />
+      </Suspense>
     </div>
   )
 }
