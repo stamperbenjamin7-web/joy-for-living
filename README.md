@@ -234,8 +234,8 @@ NEXTAUTH_URL=http://localhost:3000
 - [x] Formulario de reservas funcional
 - [x] Componentes React reutilizables
 - [x] Diseño responsive
-- [ ] Login con Google *(opcional +1 pt)*
-- [ ] Despliegue en Vercel *(opcional +1 pt)*
+- [ ] Login con Google 
+- [ ] Despliegue en Vercel 
 
 ---
 
