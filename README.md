@@ -199,7 +199,7 @@ NEXTAUTH_URL=http://localhost:3000
 ### URL de la aplicación desplegada
 
 > 🔗 **[https://joy-for-living.vercel.app](https://joy-for-living.vercel.app)**  
-> *(Actualizar con la URL real tras el despliegue)*
+
 
 ---
 
