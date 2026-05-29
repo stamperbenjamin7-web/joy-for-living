@@ -18,7 +18,7 @@ export function TestimonialsSection() {
               <div className={styles.stars}>
                 {'★'.repeat(t.rating)}
               </div>
-              <p className={styles.text}>"{t.text}"</p>
+              <p className={styles.text}>&ldquo;{t.text}&rdquo;</p>
               <div className={styles.footer}>
                 <div className={styles.avatar}>{t.avatar}</div>
                 <div>

@@ -65,7 +65,7 @@ export function BookingSection() {
           <div className={styles.success}>
             <div className={styles.successIcon}>🌊</div>
             <h2 className={styles.successTitle}>Booking Request Sent!</h2>
-            <p>We've received your request for <strong>{selectedActivity?.name || form.activity}</strong> on <strong>{form.date}</strong>.</p>
+            <p>We&apos;ve received your request for <strong>{selectedActivity?.name || form.activity}</strong> on <strong>{form.date}</strong>.</p>
             <p>Our team will confirm within 24 hours via email or WhatsApp. Get ready for an amazing adventure!</p>
             <button className={styles.resetBtn} onClick={() => { setSubmitted(false); setForm({ activity:'',schedule:'',date:'',guests:'',firstName:'',lastName:'',email:'',phone:'',notes:'' }) }}>
               Make Another Booking
@@ -267,7 +267,7 @@ export function BookingSection() {
             </button>
 
             <p className={styles.disclaimer}>
-              * Required fields. We'll confirm via email within 24 hours.
+              * Required fields. We&apos;ll confirm via email within 24 hours.
             </p>
           </form>
         </div>

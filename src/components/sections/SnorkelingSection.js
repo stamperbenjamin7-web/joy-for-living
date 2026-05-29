@@ -13,7 +13,7 @@ export function SnorkelingSection() {
               Snorkeling<br /><em>Tours</em>
             </h2>
             <p>
-              Discover Aruba's stunning underwater world with three daily departures.
+              Discover Aruba&apos;s stunning underwater world with three daily departures.
               Visit the colorful reefs of <strong>Boca Catalina</strong> or explore
               the famous <strong>Antilla Shipwreck</strong> — the largest wreck in
               the Caribbean.

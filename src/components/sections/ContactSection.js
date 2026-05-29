@@ -12,7 +12,7 @@ export function ContactSection() {
           </h2>
           <p className={styles.intro}>
             Have questions about an activity? Ready to book? Want a custom private tour?
-            We'd love to hear from you.
+            We&apos;d love to hear from you.
           </p>
         </div>
 

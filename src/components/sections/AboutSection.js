@@ -18,7 +18,7 @@ export function AboutSection() {
               Born from a <em>love</em><br />for the sea
             </h2>
             <p>
-              Joy For Living is Aruba's premier watersports & activities company,
+              Joy For Living is Aruba&apos;s premier watersports &amp; activities company,
               crafted for those who seek more than just a vacation — we create
               memories that last a lifetime.
             </p>

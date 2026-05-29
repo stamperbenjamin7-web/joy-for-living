@@ -24,27 +24,3 @@ export function useReveal() {
 
   return ref
 }
-
-export function useRevealGroup(count = 8) {
-  const refs = Array.from({ length: count }, () => useRef(null))
-
-  useEffect(() => {
-    refs.forEach((ref, i) => {
-      const el = ref.current
-      if (!el) return
-
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => el.classList.add('visible'), i * 100)
-            observer.unobserve(el)
-          }
-        },
-        { threshold: 0.1 }
-      )
-      observer.observe(el)
-    })
-  }, [])
-
-  return refs
-}
