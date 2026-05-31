@@ -107,7 +107,7 @@ joy-for-living/
 │   │   │   ├── ActivitiesSection.js    # Grid de actividades con filtros
 │   │   │   ├── SnorkelingSection.js    # Horarios de snorkeling
 │   │   │   ├── TestimonialsSection.js  # Testimonios
-│   │   │   ├── CapabilityMap.js        # Mapa de capacidades (Prácticum 3)
+│   │   │   ├── CapabilityMap.js        # Mapa de capacidades
 │   │   │   ├── BookingSection.js       # Formulario de reservas
 │   │   │   └── ContactSection.js       # Información de contacto
 │   │   └── ui/
@@ -149,7 +149,7 @@ joy-for-living/
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/[tu-usuario]/joy-for-living.git
+git clone https://github.com/stamperbenjamin7-web/joy-for-living.git
 
 # 2. Entrar al directorio
 cd joy-for-living
