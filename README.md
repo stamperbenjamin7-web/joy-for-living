@@ -214,29 +214,5 @@ NEXTAUTH_URL=http://localhost:3000
 
 ---
 
-## 🎨 Decisiones de Diseño
-
-- **Paleta:** Azul océano profundo (`#0A7EA4`), coral vivo (`#F4623A`), arena dorada (`#F5D98B`)
-- **Tipografía:** Cormorant Garamond (display serif) + Outfit (body sans-serif)
-- **Tema:** Dark mode con estética "tropical-luxe editorial"
-- **Animaciones:** CSS animations en hero, CSS transitions en cards, IntersectionObserver para reveal on-scroll
-- **Responsive:** Mobile-first con CSS Modules y media queries
-
----
-
-## 📋 Checklist del Taller
-
-- [x] Proyecto en Next.js con JavaScript
-- [x] Subido a repositorio GitHub
-- [x] README con info del estudiante y empresa
-- [x] Mapa de capacidades incluido
-- [x] Rutas múltiples (páginas)
-- [x] Formulario de reservas funcional
-- [x] Componentes React reutilizables
-- [x] Diseño responsive
-- [ ] Login con Google 
-- [ ] Despliegue en Vercel 
-
----
 
 
