@@ -9,8 +9,8 @@
 
 | Campo | Detalle |
 |---|---|
-| **Nombre** | [ Benjamin Jair Stamper Alvarez] |
-| **Programa** | [Transformación Digital de Empresas] 
+| **Nombre** | [Benjamin Jair Stamper Alvarez] |
+| **Programa** | [Transformacion digital de Empresas] |
 | **Asignatura** | Desarrollo de aplica Nat en Cloud |
 | **Unidad** | Unidad 2 – Introducción al Front-End con React |
 
@@ -177,7 +177,7 @@ npm run lint     # Linter ESLint
 Crear un archivo `.env.local` en la raíz:
 
 ```env
-# Google OAuth (punto extra)
+# Google OAuth 
 GOOGLE_CLIENT_ID=tu_google_client_id
 GOOGLE_CLIENT_SECRET=tu_google_client_secret
 NEXTAUTH_SECRET=una_cadena_secreta_aleatoria
@@ -238,5 +238,4 @@ NEXTAUTH_URL=http://localhost:3000
 - [ ] Despliegue en Vercel *(opcional +1 pt)*
 
 ---
-
 
