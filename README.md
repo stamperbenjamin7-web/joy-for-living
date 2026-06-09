@@ -81,7 +81,7 @@ Joy For Living es una empresa turística ubicada en Aruba especializada en activ
 | **React** | 18 | Biblioteca de UI |
 | **JavaScript** | ES2023 | Lenguaje de programación |
 | **CSS Modules** | – | Estilos con scope local |
-| **next-auth** | 4.x | Autenticación Google (opcional) |
+| **next-auth** | 4.x | Autenticación Google  |
 
 ### Arquitectura del proyecto
 
@@ -107,7 +107,7 @@ joy-for-living/
 │   │   │   ├── ActivitiesSection.js    # Grid de actividades con filtros
 │   │   │   ├── SnorkelingSection.js    # Horarios de snorkeling
 │   │   │   ├── TestimonialsSection.js  # Testimonios
-│   │   │   ├── CapabilityMap.js        # Mapa de capacidades (Prácticum 3)
+│   │   │   ├── CapabilityMap.js        # Mapa de capacidades
 │   │   │   ├── BookingSection.js       # Formulario de reservas
 │   │   │   └── ContactSection.js       # Información de contacto
 │   │   └── ui/
@@ -149,7 +149,7 @@ joy-for-living/
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/[tu-usuario]/joy-for-living.git
+git clone https://github.com/stamperbenjamin7-web/joy-for-living.git
 
 # 2. Entrar al directorio
 cd joy-for-living
@@ -199,7 +199,7 @@ NEXTAUTH_URL=http://localhost:3000
 ### URL de la aplicación desplegada
 
 > 🔗 **[https://joy-for-living.vercel.app](https://joy-for-living.vercel.app)**  
-> *(Actualizar con la URL real tras el despliegue)*
+
 
 ---
 
@@ -214,28 +214,4 @@ NEXTAUTH_URL=http://localhost:3000
 
 ---
 
-## 🎨 Decisiones de Diseño
-
-- **Paleta:** Azul océano profundo (`#0A7EA4`), coral vivo (`#F4623A`), arena dorada (`#F5D98B`)
-- **Tipografía:** Cormorant Garamond (display serif) + Outfit (body sans-serif)
-- **Tema:** Dark mode con estética "tropical-luxe editorial"
-- **Animaciones:** CSS animations en hero, CSS transitions en cards, IntersectionObserver para reveal on-scroll
-- **Responsive:** Mobile-first con CSS Modules y media queries
-
----
-
-## 📋 Checklist del Taller
-
-- [x] Proyecto en Next.js con JavaScript
-- [x] Subido a repositorio GitHub
-- [x] README con info del estudiante y empresa
-- [x] Mapa de capacidades incluido
-- [x] Rutas múltiples (páginas)
-- [x] Formulario de reservas funcional
-- [x] Componentes React reutilizables
-- [x] Diseño responsive
-- [ ] Login con Google *(opcional +1 pt)*
-- [ ] Despliegue en Vercel *(opcional +1 pt)*
-
----
 

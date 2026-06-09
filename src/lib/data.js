@@ -3,21 +3,19 @@ export const COMPANY = {
   name: 'Joy For Living',
   tagline: 'Watersports & Activities',
   location: 'Aruba, Dutch Caribbean',
-  whatsapp: '+297 661 0531',
+  whatsapp: '2976610531',
   whatsappDisplay: '+297 661 0531',
   email: 'info@joyforliving.com',
   instagram: 'https://instagram.com/joyforlivingaruba',
   facebook: 'https://facebook.com/joyforlivingaruba',
 }
 
-// ─── Schedule options for snorkeling ──────────────────────────────────────────
 export const SNORKELING_SCHEDULES = [
-  { id: 'morning',  label: '9:00 AM – 12:00 PM', icon: '🌅', location: 'Boca Catalina' },
-  { id: 'afternoon',label: '1:00 PM – 4:00 PM',  icon: '☀️', location: 'Antilla Shipwreck' },
-  { id: 'sunset',   label: '4:30 PM – 7:30 PM',  icon: '🌇', location: 'Boca Catalina' },
+  { id: 'morning',   label: '9:00 AM – 12:00 PM', icon: '🌅', location: 'Boca Catalina' },
+  { id: 'afternoon', label: '1:00 PM – 4:00 PM',  icon: '☀️', location: 'Antilla Shipwreck' },
+  { id: 'sunset',    label: '4:30 PM – 7:30 PM',  icon: '🌇', location: 'Boca Catalina' },
 ]
 
-// ─── Activities data ───────────────────────────────────────────────────────────
 export const CATEGORIES = [
   { id: 'all',   label: 'All Experiences' },
   { id: 'water', label: 'Water Sports' },
@@ -27,18 +25,18 @@ export const CATEGORIES = [
 ]
 
 export const ACTIVITIES = [
-  // ── WATER SPORTS ──
+
+  // ── WATER SPORTS ────────────────────────────────────────────────────────────
   {
     id: 'snorkeling',
     category: 'water',
     name: 'Snorkeling',
     emoji: '🤿',
-    color: '#0A7EA4',
-    colorB: '#064E6E',
+    // Snorkeler underwater with tropical fish
+    image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80&fit=crop',
+    color: '#0A7EA4', colorB: '#064E6E',
     description: 'Explore vibrant coral reefs and the legendary Antilla Shipwreck with our expert guides.',
-    duration: '3 hours',
-    schedule: '9AM · 1PM · 4:30PM',
-    maxGuests: 20,
+    duration: '3 hours', schedule: '9AM · 1PM · 4:30PM', maxGuests: 20,
     highlights: ['Boca Catalina reef', 'Antilla Shipwreck', 'Snorkel gear included', 'Expert guides'],
   },
   {
@@ -46,12 +44,11 @@ export const ACTIVITIES = [
     category: 'water',
     name: 'Scuba Diving',
     emoji: '🫧',
-    color: '#0D9488',
-    colorB: '#065f46',
+    // Scuba diver underwater near coral
+    image: 'https://images.unsplash.com/photo-1463790191518-3d7b8e24df4a?w=600&q=80&fit=crop',
+    color: '#0D9488', colorB: '#065f46',
     description: 'Discover Aruba\'s breathtaking underwater world with certified PADI instructors.',
-    duration: '3 hours',
-    schedule: 'Morning & Afternoon',
-    maxGuests: 8,
+    duration: '3 hours', schedule: 'Morning & Afternoon', maxGuests: 8,
     highlights: ['PADI certified guides', 'Equipment included', 'All skill levels', 'Reef & wreck dives'],
   },
   {
@@ -59,12 +56,11 @@ export const ACTIVITIES = [
     category: 'water',
     name: 'Jet Ski',
     emoji: '🚤',
-    color: '#F4623A',
-    colorB: '#c94520',
+    // Jet ski speeding on blue ocean water
+    image: 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=600&q=80&fit=crop',
+    color: '#F4623A', colorB: '#c94520',
     description: 'Race across crystal-clear Caribbean waves on high-powered jet skis. Pure adrenaline.',
-    duration: '30–60 min',
-    schedule: 'Daily, flexible',
-    maxGuests: 2,
+    duration: '30–60 min', schedule: 'Daily, flexible', maxGuests: 2,
     highlights: ['Latest model skis', 'Safety briefing', 'Solo or tandem', 'Scenic route'],
   },
   {
@@ -72,12 +68,11 @@ export const ACTIVITIES = [
     category: 'water',
     name: 'Parasailing',
     emoji: '🪂',
-    color: '#0A7EA4',
-    colorB: '#021825',
+    // Person parasailing high above the ocean with parachute
+    image: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=600&q=80&fit=crop',
+    color: '#0A7EA4', colorB: '#021825',
     description: 'Soar 400 feet above Aruba and take in the most stunning panoramic island views.',
-    duration: '1 hour',
-    schedule: 'Daily availability',
-    maxGuests: 3,
+    duration: '1 hour', schedule: 'Daily availability', maxGuests: 3,
     highlights: ['Panoramic views', 'Professional crew', 'Tandem available', 'Photo opportunities'],
   },
   {
@@ -85,12 +80,11 @@ export const ACTIVITIES = [
     category: 'water',
     name: 'Banana Boat',
     emoji: '🍌',
-    color: '#C89B3C',
-    colorB: '#8a6b20',
+    // Group of people on banana boat being pulled across water
+    image: 'https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=600&q=80&fit=crop',
+    color: '#C89B3C', colorB: '#8a6b20',
     description: 'Hold on tight for a wild, fun-filled ride! Perfect for groups, families, and laughs.',
-    duration: '20 min',
-    schedule: 'Daily, flexible',
-    maxGuests: 8,
+    duration: '20 min', schedule: 'Daily, flexible', maxGuests: 8,
     highlights: ['Family friendly', 'Group activity', 'Guided by boat', 'Life vests included'],
   },
   {
@@ -98,12 +92,11 @@ export const ACTIVITIES = [
     category: 'water',
     name: 'Tube Rides',
     emoji: '🫶',
-    color: '#0D9488',
-    colorB: '#065f46',
+    // People on inflatable tubes being pulled on water
+    image: 'https://images.unsplash.com/photo-1561463978-049f20d4ede3?w=600&q=80&fit=crop',
+    color: '#0D9488', colorB: '#065f46',
     description: 'Experience the thrill of being pulled across the waves on an inflatable tube.',
-    duration: '20 min',
-    schedule: 'Daily, flexible',
-    maxGuests: 4,
+    duration: '20 min', schedule: 'Daily, flexible', maxGuests: 4,
     highlights: ['High speed thrills', 'Suitable for teens+', 'Safety equipment', 'Fun guaranteed'],
   },
   {
@@ -111,12 +104,11 @@ export const ACTIVITIES = [
     category: 'water',
     name: 'Paddle Board',
     emoji: '🏄',
-    color: '#0A7EA4',
-    colorB: '#064E6E',
+    // Person stand-up paddleboarding on calm clear ocean water
+    image: 'https://images.unsplash.com/photo-1531722569936-825d4eea2573?w=600&q=80&fit=crop',
+    color: '#0A7EA4', colorB: '#064E6E',
     description: 'Glide at your own pace across Aruba\'s calm, crystal-clear shoreline waters.',
-    duration: 'Half / Full day',
-    schedule: 'All day',
-    maxGuests: 10,
+    duration: 'Half / Full day', schedule: 'All day', maxGuests: 10,
     highlights: ['Beginner friendly', 'Calm waters', 'Core workout', 'Guided or solo'],
   },
   {
@@ -124,12 +116,11 @@ export const ACTIVITIES = [
     category: 'water',
     name: 'Kayak',
     emoji: '🛶',
-    color: '#C89B3C',
-    colorB: '#7a5a10',
+    // Two people kayaking on turquoise tropical water
+    image: 'https://images.unsplash.com/photo-1472745433479-4556f22e32c2?w=600&q=80&fit=crop',
+    color: '#C89B3C', colorB: '#7a5a10',
     description: 'Explore Aruba\'s coastline at your own rhythm in a single or double kayak.',
-    duration: 'Half / Full day',
-    schedule: 'All day',
-    maxGuests: 10,
+    duration: 'Half / Full day', schedule: 'All day', maxGuests: 10,
     highlights: ['Single & double', 'Coastal exploration', 'No experience needed', 'Maps provided'],
   },
   {
@@ -137,27 +128,25 @@ export const ACTIVITIES = [
     category: 'water',
     name: 'Windsurf',
     emoji: '🌬️',
-    color: '#0D9488',
-    colorB: '#064E6E',
+    // Windsurfer with colorful sail on blue water
+    image: 'https://images.unsplash.com/photo-1504184130209-67eba03baa4e?w=600&q=80&fit=crop',
+    color: '#0D9488', colorB: '#064E6E',
     description: 'Aruba is one of the world\'s top windsurfing destinations. Learn or advance your skills.',
-    duration: '2–4 hours',
-    schedule: 'Morning lessons',
-    maxGuests: 6,
+    duration: '2–4 hours', schedule: 'Morning lessons', maxGuests: 6,
     highlights: ['World-class winds', 'Beginner lessons', 'Equipment included', 'Expert instructors'],
   },
 
-  // ── LAND TOURS ──
+  // ── LAND TOURS ──────────────────────────────────────────────────────────────
   {
     id: 'utv',
     category: 'tours',
     name: 'UTV Tours',
     emoji: '🏍️',
-    color: '#C89B3C',
-    colorB: '#92660A',
+    // Side-by-side UTV off-road vehicle kicking up dust on trail
+    image: 'https://images.unsplash.com/photo-1597075687490-8f673c6c17f6?w=600&q=80&fit=crop',
+    color: '#C89B3C', colorB: '#92660A',
     description: 'Conquer Aruba\'s rugged terrain in a side-by-side UTV. Hidden treasures await off-road.',
-    duration: '3–4 hours',
-    schedule: 'Morning & Afternoon',
-    maxGuests: 4,
+    duration: '3–4 hours', schedule: 'Morning & Afternoon', maxGuests: 4,
     highlights: ['Off-road trails', 'Natural Pools', 'Arikok Park', 'Helmets & gear included'],
   },
   {
@@ -165,12 +154,11 @@ export const ACTIVITIES = [
     category: 'tours',
     name: 'ATV Tours',
     emoji: '🏔️',
-    color: '#F4623A',
-    colorB: '#c94520',
+    // ATV quad bike rider on outdoor dirt trail with dust cloud
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&fit=crop',
+    color: '#F4623A', colorB: '#c94520',
     description: 'Single-rider ATVs for solo adventurers. Explore the wild north coast of Aruba.',
-    duration: '3–4 hours',
-    schedule: 'Morning & Afternoon',
-    maxGuests: 10,
+    duration: '3–4 hours', schedule: 'Morning & Afternoon', maxGuests: 10,
     highlights: ['Solo adventure', 'Wild north coast', 'Aloe vera fields', 'Lighthouse visit'],
   },
   {
@@ -178,12 +166,11 @@ export const ACTIVITIES = [
     category: 'tours',
     name: 'Jeep Safari',
     emoji: '🚙',
-    color: '#0D9488',
-    colorB: '#065f46',
+    // Red Jeep Wrangler on rugged off-road trail in nature
+    image: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=600&q=80&fit=crop',
+    color: '#0D9488', colorB: '#065f46',
     description: 'Island-wide exploration in a 4x4 Jeep. Natural bridges, Arikok National Park, and more.',
-    duration: 'Half / Full day',
-    schedule: 'Morning',
-    maxGuests: 6,
+    duration: 'Half / Full day', schedule: 'Morning', maxGuests: 6,
     highlights: ['Natural Bridge ruins', 'Arikok National Park', 'Conchi Natural Pool', 'Snack & water included'],
   },
   {
@@ -191,12 +178,11 @@ export const ACTIVITIES = [
     category: 'tours',
     name: 'Bus Tours',
     emoji: '🚌',
-    color: '#1e3a5f',
-    colorB: '#0a1929',
+    // Aerial view of beautiful Caribbean island coastline
+    image: 'https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=600&q=80&fit=crop',
+    color: '#1e3a5f', colorB: '#0a1929',
     description: 'Comfortable air-conditioned bus tours covering all major sights around the island.',
-    duration: '4 hours',
-    schedule: 'Daily departures',
-    maxGuests: 40,
+    duration: '4 hours', schedule: 'Daily departures', maxGuests: 40,
     highlights: ['Air-conditioned', 'Guided commentary', 'Hotel pickup', 'All sights covered'],
   },
   {
@@ -204,27 +190,25 @@ export const ACTIVITIES = [
     category: 'tours',
     name: 'Private Tours',
     emoji: '⭐',
-    color: '#C89B3C',
-    colorB: '#7a5a10',
+    // Couple enjoying scenic tropical island viewpoint
+    image: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&q=80&fit=crop',
+    color: '#C89B3C', colorB: '#7a5a10',
     description: 'Fully customized private island experiences tailored exactly to your group\'s wishes.',
-    duration: 'Custom',
-    schedule: 'By arrangement',
-    maxGuests: 20,
+    duration: 'Custom', schedule: 'By arrangement', maxGuests: 20,
     highlights: ['Fully customized', 'Private guide', 'Any vehicle', 'Flexible itinerary'],
   },
 
-  // ── SEA TOURS ──
+  // ── SEA TOURS ───────────────────────────────────────────────────────────────
   {
     id: 'catamaran',
     category: 'sea',
     name: 'Catamaran Trips',
     emoji: '⛵',
-    color: '#0A7EA4',
-    colorB: '#064E6E',
+    // Sailing catamaran on turquoise Caribbean water at golden sunset
+    image: 'https://images.unsplash.com/photo-1500514966906-fe245eea9344?w=600&q=80&fit=crop',
+    color: '#0A7EA4', colorB: '#064E6E',
     description: 'Sail the Caribbean on a luxury catamaran with snorkeling stops, open bar & sunset cruises.',
-    duration: '3 hours',
-    schedule: 'Morning & Sunset',
-    maxGuests: 30,
+    duration: '3 hours', schedule: 'Morning & Sunset', maxGuests: 30,
     highlights: ['Open bar', 'Snorkeling stop', 'Sunset option', 'Music on board'],
   },
   {
@@ -232,12 +216,11 @@ export const ACTIVITIES = [
     category: 'sea',
     name: 'Boat Trips',
     emoji: '🛥️',
-    color: '#0D9488',
-    colorB: '#064E6E',
+    // White speedboat leaving wake on crystal blue tropical ocean
+    image: 'https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=600&q=80&fit=crop',
+    color: '#0D9488', colorB: '#064E6E',
     description: 'Explore hidden coves, beaches, and reefs accessible only by boat around Aruba.',
-    duration: '2–4 hours',
-    schedule: 'Daily',
-    maxGuests: 15,
+    duration: '2–4 hours', schedule: 'Daily', maxGuests: 15,
     highlights: ['Hidden beaches', 'Snorkel stops', 'Guided route', 'Beverages included'],
   },
   {
@@ -245,12 +228,11 @@ export const ACTIVITIES = [
     category: 'sea',
     name: 'Deep Sea Fishing',
     emoji: '🎣',
-    color: '#064E6E',
-    colorB: '#021825',
+    // Fishing rods on charter boat over deep blue ocean
+    image: 'https://images.unsplash.com/photo-1578645510447-e20b4311e3ce?w=600&q=80&fit=crop',
+    color: '#064E6E', colorB: '#021825',
     description: 'Target marlin, tuna, wahoo, and mahi-mahi on an exciting offshore fishing charter.',
-    duration: '4–8 hours',
-    schedule: 'Early morning',
-    maxGuests: 8,
+    duration: '4–8 hours', schedule: 'Early morning', maxGuests: 8,
     highlights: ['Offshore fishing', 'All equipment', 'Expert captain', 'Keep your catch'],
   },
   {
@@ -258,27 +240,25 @@ export const ACTIVITIES = [
     category: 'sea',
     name: 'Bottom Fishing',
     emoji: '🐟',
-    color: '#0A7EA4',
-    colorB: '#064E6E',
+    // Person fishing from boat on calm tropical water
+    image: 'https://images.unsplash.com/photo-1516825295-f7cc8e4f5f7e?w=600&q=80&fit=crop',
+    color: '#0A7EA4', colorB: '#064E6E',
     description: 'Inshore bottom fishing for snappers, groupers and more. Perfect for all skill levels.',
-    duration: '3–4 hours',
-    schedule: 'Morning',
-    maxGuests: 10,
+    duration: '3–4 hours', schedule: 'Morning', maxGuests: 10,
     highlights: ['Inshore fishing', 'Beginner friendly', 'Bait provided', 'Keep your catch'],
   },
 
-  // ── BEACH SERVICES ──
+  // ── BEACH SERVICES ──────────────────────────────────────────────────────────
   {
     id: 'chairs',
     category: 'beach',
     name: 'Beach Chair Rental',
     emoji: '🪑',
-    color: '#C89B3C',
-    colorB: '#92660A',
+    // White beach loungers on perfect white sand with turquoise sea
+    image: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&q=80&fit=crop',
+    color: '#C89B3C', colorB: '#92660A',
     description: 'Premium padded beach loungers on Aruba\'s most beautiful white sand beaches.',
-    duration: 'Full day',
-    schedule: 'All day',
-    maxGuests: null,
+    duration: 'Full day', schedule: 'All day', maxGuests: null,
     highlights: ['Premium loungers', 'Beachfront position', 'Towels available', 'Flexible rental'],
   },
   {
@@ -286,12 +266,11 @@ export const ACTIVITIES = [
     category: 'beach',
     name: 'Umbrella Rental',
     emoji: '⛱️',
-    color: '#F4623A',
-    colorB: '#c94520',
+    // Colorful beach umbrellas on white sand tropical beach with blue water
+    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80&fit=crop',
+    color: '#F4623A', colorB: '#c94520',
     description: 'Large beach umbrellas for shade and comfort. Available solo or bundled with chairs.',
-    duration: 'Full day',
-    schedule: 'All day',
-    maxGuests: null,
+    duration: 'Full day', schedule: 'All day', maxGuests: null,
     highlights: ['UV protection', 'Large canopy', 'Bundle deals', 'Best beach spots'],
   },
 ]

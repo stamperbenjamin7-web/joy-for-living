@@ -57,22 +57,48 @@ export function ActivitiesSection({ showAll = false }) {
 function ActivityCard({ activity }) {
   return (
     <div className={styles.card}>
-      <div
-        className={styles.thumb}
-        style={{ background: `linear-gradient(135deg, ${activity.color} 0%, ${activity.colorB} 100%)` }}
-      >
-        <span className={styles.emoji}>{activity.emoji}</span>
+      <div className={styles.thumb}>
+        {/* Real photo with fallback gradient */}
+        <img
+          src={activity.image}
+          alt={activity.name}
+          className={styles.thumbImg}
+          loading="lazy"
+          onError={(e) => {
+            // Fallback: hide broken image and show emoji
+            e.target.style.display = 'none'
+            e.target.nextSibling.style.display = 'flex'
+          }}
+        />
+        {/* Emoji fallback (hidden by default) */}
+        <div
+          className={styles.thumbFallback}
+          style={{
+            background: `linear-gradient(135deg, ${activity.color} 0%, ${activity.colorB} 100%)`,
+            display: 'none'
+          }}
+        >
+          <span>{activity.emoji}</span>
+        </div>
+        {/* Gradient overlay for text readability */}
+        <div className={styles.thumbOverlay} />
+        {/* Category badge */}
+        <span className={styles.categoryBadge}>
+          {CATEGORIES.find(c => c.id === activity.category)?.label.replace('All Experiences', '')}
+        </span>
       </div>
+
       <div className={styles.body}>
-        <div className={styles.name}>{activity.name}</div>
+        <div className={styles.nameRow}>
+          <span className={styles.emoji}>{activity.emoji}</span>
+          <div className={styles.name}>{activity.name}</div>
+        </div>
         <p className={styles.desc}>{activity.description}</p>
         <div className={styles.meta}>
-          <div className={styles.metaItems}>
-            <span className={styles.duration}>⏱ {activity.duration}</span>
-            {activity.maxGuests && (
-              <span className={styles.guests}>👥 Max {activity.maxGuests}</span>
-            )}
-          </div>
+          <span className={styles.duration}>⏱ {activity.duration}</span>
+          {activity.maxGuests && (
+            <span className={styles.guests}>👥 Max {activity.maxGuests}</span>
+          )}
         </div>
         <div className={styles.footer}>
           <span className={styles.schedule}>{activity.schedule}</span>

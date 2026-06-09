@@ -4,7 +4,7 @@ import { COMPANY } from '../../lib/data'
 export function WhatsAppFloat() {
   return (
     <a
-      href={`https://wa.me/${COMPANY.whatsapp}?text=Hello! I'd like to book an activity.`}
+      href={`https://wa.me/${COMPANY.whatsapp}?text=Hello! I%27d like to book an activity.`}
       target="_blank"
       rel="noopener noreferrer"
       className={styles.btn}
