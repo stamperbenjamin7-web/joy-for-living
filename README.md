@@ -53,21 +53,25 @@ Joy For Living es una empresa turística ubicada en Aruba especializada en activ
 
 ### Servicios cubiertos por la aplicación
 
-#### 🌊 Deportes Acuáticos
-- Snorkeling (con horarios específicos: 9AM, 1PM, 4:30PM)
-- Scuba Diving · Jet Ski · Parasailing
-- Banana Boat · Tube Rides · Paddle Board · Kayak · Windsurf
+#### 🏖️ Delivery de Sillas y Sombrillas (servicio insignia)
+- 1 sombrilla pequeña + 2 sillas de playa entregadas en el hotel/playa: **$25**
+- Instalación por nuestro equipo (incluye delivery): **+$10**
+- Reserva en línea con depósito de **$10 con tarjeta** (Stripe Checkout); el resto se paga al entregar
 
-#### 🏍️ Tours Terrestres
-- UTV Tours · ATV Tours · Jeep Safari
-- Bus Tours · Private Tours
+#### ⛵ Sailing & Snorkeling
+- Botes: Dolphin, Sunshine, Sail Away, Locura, Jolly Pirates
+- $70 por adulto · $50 por niño (menores de 10)
 
-#### ⛵ Tours Marítimos
-- Catamaran Trips · Boat Trips
-- Deep Sea Fishing · Bottom Fishing
+#### 🌊 Watersports
+- Tube Rides ($30/persona) · Parasailing ($70/persona)
+- Jet Skis / Waverunners ($70 individual · $80 doble)
+- Kayaks ($35/hora) · Paddle Board ($25/hora)
 
-#### 🏖️ Servicios de Playa
-- Beach Chair Rental · Umbrella Rental
+#### 🎣 Fishing
+- Bottom Fishing · Deep Sea Fishing
+
+#### 🏍️ Land Tours
+- Jeep Tours · UTV Tours
 
 ---
 

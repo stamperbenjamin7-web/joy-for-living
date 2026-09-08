@@ -1,32 +1,43 @@
 import Link from 'next/link'
+import { CascadeImage } from '../ui/CascadeImage'
 import styles from './HeroSection.module.css'
 
 export function HeroSection() {
   return (
     <section className={styles.hero}>
       <div className={styles.bg}>
-        <div className={styles.gradientOrb1}></div>
-        <div className={styles.gradientOrb2}></div>
+        {/* Cascade: local photo of our Palm Beach kiosk → stock aerial beach photo */}
+        <CascadeImage
+          src="/images/hero.jpg"
+          remoteSrc="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1800&q=80&fit=crop"
+          alt="Joy For Living beach setup at Palm Beach, Aruba"
+          className={styles.bgImg}
+          eager
+          hasFallbackSibling={false}
+        />
+        <div className={styles.overlay}></div>
         <div className={styles.grid}></div>
       </div>
 
       <div className={styles.content}>
-        <span className={styles.badge}>✦ Aruba · One Happy Island ✦</span>
+        <span className={styles.badge}>✦ Palm Beach · Aruba · One Happy Island ✦</span>
 
-        <h1 className={styles.title}>
-          Feel the <em>Joy</em><br />
-          of Living
-        </h1>
+        <div className={styles.brandPanel}>
+          <h1 className={styles.title}>
+            Joy <span className={styles.titleAccent}>For</span> Living
+          </h1>
+          <p className={styles.subtitleBrand}>Watersports &amp; Activities</p>
+        </div>
 
         <p className={styles.subtitle}>
-          Watersports, island tours & unforgettable adventures
-          on the most beautiful Caribbean island.
+          Beach chairs & umbrellas delivered to your spot, plus sailing, watersports,
+          fishing and island tours — all reserved in minutes.
         </p>
 
         <div className={styles.actions}>
-          <Link href="/booking" className={styles.btnPrimary}>
-            Book an Experience
-          </Link>
+          <a href="#beach-rental" className={styles.btnPrimary}>
+            🏖️ Get Chairs &amp; Umbrella Delivered
+          </a>
           <Link href="/activities" className={styles.btnOutline}>
             Explore Activities
           </Link>
@@ -34,8 +45,8 @@ export function HeroSection() {
 
         <div className={styles.stats}>
           {[
-            { num: '20+', label: 'Activities' },
-            { num: '365', label: 'Days/Year' },
+            { num: '$25', label: 'Chairs + Umbrella' },
+            { num: '$10', label: 'Reserve Deposit' },
             { num: '★ 5', label: 'Star Rated' },
           ].map(s => (
             <div key={s.label} className={styles.stat}>

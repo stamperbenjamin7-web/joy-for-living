@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { ACTIVITIES, CATEGORIES } from '../../lib/data'
+import { CascadeImage } from '../ui/CascadeImage'
 import styles from './ActivitiesSection.module.css'
 
 export function ActivitiesSection({ showAll = false }) {
@@ -55,34 +56,24 @@ export function ActivitiesSection({ showAll = false }) {
 }
 
 function ActivityCard({ activity }) {
+  const localImage = `/images/activities/${activity.id}.jpg`
+  const price = activity.priceLabel || (activity.priceAdult ? `$${activity.priceAdult} adult` : 'Ask for pricing')
+
   return (
     <div className={styles.card}>
       <div className={styles.thumb}>
-        {/* Real photo with fallback gradient */}
-        <img
-          src={activity.image}
+        {/* Cascade: local photo → stock photo → emoji tile, so real photos can be dropped
+            in at public/images/activities/<id>.jpg without touching any code. */}
+        <CascadeImage
+          src={localImage}
+          remoteSrc={activity.image}
           alt={activity.name}
           className={styles.thumbImg}
-          loading="lazy"
-          onError={(e) => {
-            // Fallback: hide broken image and show emoji
-            e.target.style.display = 'none'
-            e.target.nextSibling.style.display = 'flex'
-          }}
         />
-        {/* Emoji fallback (hidden by default) */}
-        <div
-          className={styles.thumbFallback}
-          style={{
-            background: `linear-gradient(135deg, ${activity.color} 0%, ${activity.colorB} 100%)`,
-            display: 'none'
-          }}
-        >
+        <div className={styles.thumbFallback} style={{ display: 'none' }}>
           <span>{activity.emoji}</span>
         </div>
-        {/* Gradient overlay for text readability */}
         <div className={styles.thumbOverlay} />
-        {/* Category badge */}
         <span className={styles.categoryBadge}>
           {CATEGORIES.find(c => c.id === activity.category)?.label.replace('All Experiences', '')}
         </span>
@@ -95,13 +86,10 @@ function ActivityCard({ activity }) {
         </div>
         <p className={styles.desc}>{activity.description}</p>
         <div className={styles.meta}>
-          <span className={styles.duration}>⏱ {activity.duration}</span>
-          {activity.maxGuests && (
-            <span className={styles.guests}>👥 Max {activity.maxGuests}</span>
-          )}
+          {activity.duration && <span className={styles.duration}>⏱ {activity.duration}</span>}
         </div>
         <div className={styles.footer}>
-          <span className={styles.schedule}>{activity.schedule}</span>
+          <span className={styles.schedule}>{price}</span>
           <Link href={`/booking?activity=${activity.id}`} className={styles.bookBtn}>
             Book →
           </Link>

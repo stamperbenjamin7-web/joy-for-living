@@ -44,9 +44,9 @@ export function ContactSection() {
           <div className={styles.card}>
             <div className={styles.cardIcon}>📍</div>
             <h3>Location</h3>
-            <p className={styles.highlight}>Aruba</p>
-            <p>Dutch Caribbean<br />One Happy Island</p>
-            <span className={styles.cardCta}>One Happy Island</span>
+            <p className={styles.highlight}>Palm Beach, Aruba</p>
+            <p>C Tower, Holiday Inn Aruba<br />One Happy Island</p>
+            <span className={styles.cardCta}>Find Us on the Beach</span>
           </div>
         </div>
 

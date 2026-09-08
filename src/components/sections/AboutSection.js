@@ -18,14 +18,14 @@ export function AboutSection() {
               Born from a <em>love</em><br />for the sea
             </h2>
             <p>
-              Joy For Living is Aruba&apos;s premier watersports &amp; activities company,
-              crafted for those who seek more than just a vacation — we create
-              memories that last a lifetime.
+              Joy For Living is based right on Palm Beach, in front of the Holiday
+              Inn Aruba (C Tower). From beach chair &amp; umbrella delivery to
+              sailing, watersports, fishing and island tours, we bring the
+              adventure to you.
             </p>
             <p>
-              From the turquoise waters of Boca Catalina to the historic Antilla
-              Shipwreck, every experience is guided by passion, safety, and an
-              infectious love for this island paradise.
+              Every experience — on the sand or out on the water — is guided by
+              passion, safety, and an infectious love for this island paradise.
             </p>
 
             <div className={styles.stats}>
