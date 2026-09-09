@@ -38,7 +38,7 @@ Joy For Living es una empresa turística ubicada en Palm Beach, Aruba, especiali
 #### 🏖️ Delivery de Sillas y Sombrillas (servicio insignia)
 - 1 sombrilla pequeña + 2 sillas de playa entregadas en el hotel/playa: **$25**
 - Instalación por nuestro equipo (incluye delivery): **+$10**
-- Reserva en línea con depósito de **$10 con tarjeta** (Stripe Checkout); el resto se paga al entregar
+- Reserva en línea con depósito de **$10 con tarjeta** (PayPal Checkout); el resto se paga al entregar
 
 #### ⛵ Sailing & Snorkeling
 - Botes: Dolphin, Sunshine, Locura ($70 adulto · $50 niño menor de 10), Jolly Pirates (ofrecido sin precio publicado)
@@ -66,7 +66,7 @@ Joy For Living es una empresa turística ubicada en Palm Beach, Aruba, especiali
 | **React** | 18 | Biblioteca de UI |
 | **JavaScript** | ES2023 | Lenguaje de programación |
 | **CSS Modules** | – | Estilos con scope local |
-| **Stripe** | 16.x | Depósito con tarjeta para el delivery de sillas/sombrillas |
+| **PayPal REST API** | v2 (Orders) | Depósito con tarjeta para el delivery de sillas/sombrillas — funciona en Aruba, a diferencia de Stripe |
 | **next-auth** | 4.x | Dependencia instalada para login con Google (aún no conectada) |
 
 ### Arquitectura del proyecto
@@ -79,8 +79,9 @@ joy-for-living/
 │   │   ├── icon.png            # Favicon (generado del logo real)
 │   │   ├── page.js             # Página principal (Home)
 │   │   ├── api/
-│   │   │   ├── create-deposit-session/route.js  # Crea el Stripe Checkout del depósito
-│   │   │   └── session-details/route.js         # Consulta el estado del pago
+│   │   │   └── paypal/
+│   │   │       ├── create-order/route.js   # Crea la orden de PayPal para el depósito
+│   │   │       └── capture-order/route.js  # Confirma el pago tras volver de PayPal
 │   │   ├── activities/
 │   │   │   └── page.js         # Catálogo completo de actividades
 │   │   ├── booking/
@@ -114,7 +115,7 @@ joy-for-living/
 
 ### Funcionalidades implementadas
 
-- ✅ **Delivery de sillas y sombrillas** con depósito de $10 por tarjeta (Stripe Checkout) y respaldo por WhatsApp
+- ✅ **Delivery de sillas y sombrillas** con depósito de $10 por tarjeta (PayPal Checkout) y respaldo por WhatsApp
 - ✅ **Landing page** completa con hero traslúcido sobre foto real
 - ✅ **Catálogo de actividades** con filtros por categoría y precios reales
 - ✅ **Botes de sailing & snorkeling** con fotos reales
@@ -170,8 +171,13 @@ Copiar `.env.example` a `.env.local` y completar:
 
 ```env
 # Requerido para que el depósito con tarjeta funcione (si no se configura,
-# el sitio cae automáticamente a reserva solo por WhatsApp)
-STRIPE_SECRET_KEY=sk_test_tu_clave_de_stripe
+# el sitio cae automáticamente a reserva solo por WhatsApp). Crear una app en
+# https://developer.paypal.com/dashboard/applications
+PAYPAL_CLIENT_ID=tu_client_id_de_paypal
+PAYPAL_CLIENT_SECRET=tu_client_secret_de_paypal
+
+# 'sandbox' (por defecto, para probar) o 'live' con credenciales reales
+PAYPAL_ENV=sandbox
 
 # Opcional — URL pública del sitio desplegado
 NEXT_PUBLIC_BASE_URL=http://localhost:3000
@@ -192,7 +198,7 @@ NEXTAUTH_URL=http://localhost:3000
 1. Crear cuenta en [vercel.com](https://vercel.com)
 2. Conectar repositorio de GitHub
 3. Click en **"Import Project"**
-4. Configurar `STRIPE_SECRET_KEY` (y `NEXT_PUBLIC_BASE_URL` con la URL final) para que el depósito con tarjeta funcione en producción
+4. Configurar `PAYPAL_CLIENT_ID`, `PAYPAL_CLIENT_SECRET`, `PAYPAL_ENV=live` (y `NEXT_PUBLIC_BASE_URL` con la URL final) para que el depósito con tarjeta funcione en producción
 5. Click **"Deploy"**
 
 

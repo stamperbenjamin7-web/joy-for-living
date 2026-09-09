@@ -15,30 +15,48 @@ export default function BookingSuccessPage() {
 
 function BookingSuccessContent() {
   const searchParams = useSearchParams()
-  const sessionId = searchParams.get('session_id')
-  const [state, setState] = useState({ loading: true, error: '', data: null })
+  // PayPal redirects back with its own `token` (the order id) and `PayerID`
+  // appended to our return_url — our original booking details are already
+  // sitting right there in the same query string, so no session lookup needed.
+  const orderId = searchParams.get('token')
+  const meta = {
+    location: searchParams.get('location') || '',
+    date: searchParams.get('date') || '',
+    timeWindow: searchParams.get('timeWindow') || '',
+    qty: searchParams.get('qty') || '1',
+    setup: searchParams.get('setup') || 'false',
+    name: searchParams.get('name') || '',
+    phone: searchParams.get('phone') || '',
+    total: searchParams.get('total') || '0',
+    depositAmount: searchParams.get('depositAmount') || '0',
+  }
+
+  const [state, setState] = useState({ loading: true, error: '', paid: false })
 
   useEffect(() => {
-    if (!sessionId) {
-      setState({ loading: false, error: 'Missing checkout session.', data: null })
+    if (!orderId) {
+      setState({ loading: false, error: 'Missing order reference.', paid: false })
       return
     }
-    fetch(`/api/session-details?session_id=${encodeURIComponent(sessionId)}`)
+    fetch('/api/paypal/capture-order', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ orderId }),
+    })
       .then(res => res.json())
       .then(data => {
-        if (data.error) setState({ loading: false, error: data.error, data: null })
-        else setState({ loading: false, error: '', data })
+        if (data.error) setState({ loading: false, error: data.error, paid: false })
+        else setState({ loading: false, error: '', paid: data.paid })
       })
-      .catch(() => setState({ loading: false, error: 'Could not confirm your payment.', data: null }))
-  }, [sessionId])
+      .catch(() => setState({ loading: false, error: 'Could not confirm your payment.', paid: false }))
+  }, [orderId])
 
-  const meta = state.data?.metadata || {}
+  const balanceDue = (Number(meta.total) - Number(meta.depositAmount)).toFixed(2)
 
   const whatsappMessage = meta.name
     ? `Hi! I just paid the $${meta.depositAmount} deposit for my beach chair & umbrella delivery.\n` +
       `Name: ${meta.name}\nPhone: ${meta.phone}\nLocation: ${meta.location}\nDate: ${meta.date}${meta.timeWindow ? `\nTime: ${meta.timeWindow}` : ''}\n` +
-      `Sets: ${meta.qty}${meta.setup === 'true' ? ' (with setup)' : ''}\nTotal: $${meta.total} (balance $${(Number(meta.total) - Number(meta.depositAmount)).toFixed(2)} due on delivery)` +
-      (meta.notes ? `\nNotes: ${meta.notes}` : '')
+      `Sets: ${meta.qty}${meta.setup === 'true' ? ' (with setup)' : ''}\nTotal: $${meta.total} (balance $${balanceDue} due on delivery)`
     : `Hi! I just paid my reservation deposit and would like to confirm the details.`
 
   const whatsappHref = `https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`
@@ -60,15 +78,14 @@ function BookingSuccessContent() {
           </>
         )}
 
-        {!state.loading && !state.error && state.data && (
+        {!state.loading && !state.error && (
           <>
-            <div className={styles.icon}>{state.data.paid ? '✅' : '⏳'}</div>
-            <h1 className={styles.title}>{state.data.paid ? 'Deposit received!' : 'Payment pending'}</h1>
+            <div className={styles.icon}>{state.paid ? '✅' : '⏳'}</div>
+            <h1 className={styles.title}>{state.paid ? 'Deposit received!' : 'Payment pending'}</h1>
             <p>
               Your ${meta.depositAmount} deposit for <strong>{meta.qty} umbrella + chair set(s)</strong>
               {meta.setup === 'true' ? ' with setup' : ''} on <strong>{meta.date}</strong> is confirmed.
-              The remaining <strong>${(Number(meta.total) - Number(meta.depositAmount)).toFixed(2)}</strong> is
-              due on delivery.
+              The remaining <strong>${balanceDue}</strong> is due on delivery.
             </p>
             <p>Tap below to send us the final details on WhatsApp so our team can schedule your delivery.</p>
             <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className={styles.waBtn}>

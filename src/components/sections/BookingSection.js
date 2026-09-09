@@ -104,7 +104,7 @@ function RentalBookingForm({ initialCanceled }) {
     setLoading(true)
     setCanceled(false)
     try {
-      const res = await fetch('/api/create-deposit-session', {
+      const res = await fetch('/api/paypal/create-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...form, qty, total, depositAmount: deposit }),
@@ -221,7 +221,7 @@ function RentalBookingForm({ initialCanceled }) {
 
         {!paymentUnavailable ? (
           <button type="submit" className={styles.payBtn} disabled={loading}>
-            {loading ? 'Redirecting to secure checkout…' : `Pay $${deposit} Deposit & Reserve →`}
+            {loading ? 'Redirecting to PayPal…' : `Pay $${deposit} Deposit with PayPal →`}
           </button>
         ) : (
           <div className={styles.fallbackNotice}>
@@ -236,7 +236,7 @@ function RentalBookingForm({ initialCanceled }) {
           </div>
         )}
 
-        <p className={styles.disclaimer}>* Required fields. Your card is only charged the ${deposit} deposit now.</p>
+        <p className={styles.disclaimer}>* Required fields. You&apos;ll be redirected to PayPal to pay only the ${deposit} deposit now — no PayPal account required, a guest card checkout is available too.</p>
       </form>
     </div>
   )
