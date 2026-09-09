@@ -43,6 +43,13 @@ export const CATEGORIES = [
 
 // ─── Sailing & Snorkeling Boats ────────────────────────────────────────────────
 // $70 per adult · $50 per child (under 10) on every boat listed on our gazebo sign.
+// Every boat departs on the same 3 daily time slots.
+export const BOAT_SCHEDULES = [
+  { id: 'morning',   label: '9:00 AM – 12:00 PM' },
+  { id: 'midday',    label: '1:00 PM – 4:00 PM' },
+  { id: 'sunset',    label: '4:30 PM – 7:30 PM' },
+]
+
 export const BOATS = [
   {
     id: 'dolphin',
@@ -71,7 +78,6 @@ export const BOATS = [
     category: 'sailing',
     name: 'Locura',
     emoji: '⛵',
-    // Aerial catamaran shot — swap for a real photo of the Locura at public/images/activities/locura.jpg
     image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80&fit=crop',
     description: 'The Locura catamaran — a high-energy sail with a giant water slide and swings.',
     priceAdult: 70, priceChild: 50, priceLabel: '$70 adult · $50 child',
@@ -83,7 +89,6 @@ export const BOATS = [
     category: 'sailing',
     name: 'Jolly Pirates',
     emoji: '🏴‍☠️',
-    // Pirate-ship style sailing photo — swap for a real photo at public/images/activities/jolly-pirates.jpg
     image: 'https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=800&q=80&fit=crop',
     description: 'Board the Jolly Pirates ship for a fun-filled snorkel sail with rope swings and slides.',
     duration: '~3 hours',

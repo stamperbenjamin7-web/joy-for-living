@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { BOATS } from '../../lib/data'
+import { BOATS, BOAT_SCHEDULES } from '../../lib/data'
 import { CascadeImage } from '../ui/CascadeImage'
 import styles from './BoatsSection.module.css'
 
@@ -16,6 +16,11 @@ export function BoatsSection() {
             Choose your boat — every trip includes a snorkeling stop along
             Aruba&apos;s calm turquoise coast.
           </p>
+          <div className={styles.schedules}>
+            {BOAT_SCHEDULES.map(s => (
+              <span key={s.id} className={styles.scheduleChip}>🕐 {s.label}</span>
+            ))}
+          </div>
         </div>
 
         <div className={styles.grid}>

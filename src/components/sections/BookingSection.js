@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { ACTIVITIES, CATEGORIES, BEACH_RENTAL, COMPANY } from '../../lib/data'
+import { ACTIVITIES, CATEGORIES, BEACH_RENTAL, BOAT_SCHEDULES, COMPANY } from '../../lib/data'
 import styles from './BookingSection.module.css'
 
 const TIME_WINDOWS = [
@@ -245,7 +245,7 @@ function RentalBookingForm({ initialCanceled }) {
 // ─── Activities & Tours ────────────────────────────────────────────────────────
 function ActivityBookingForm({ initialActivity }) {
   const [form, setForm] = useState({
-    activity: initialActivity, date: '', adults: 2, children: 0,
+    activity: initialActivity, date: '', departureTime: '', adults: 2, children: 0,
     firstName: '', lastName: '', email: '', phone: '', notes: '',
   })
   const [submitted, setSubmitted] = useState(false)
@@ -259,6 +259,7 @@ function ActivityBookingForm({ initialActivity }) {
   const today = new Date().toISOString().split('T')[0]
 
   const hasAgePricing = !!selectedActivity?.priceAdult
+  const isBoat = selectedActivity?.category === 'sailing'
   const estimatedTotal = hasAgePricing
     ? (Number(form.adults || 0) * selectedActivity.priceAdult) + (Number(form.children || 0) * selectedActivity.priceChild)
     : null
@@ -283,8 +284,12 @@ function ActivityBookingForm({ initialActivity }) {
     const priceLine = hasAgePricing
       ? `Estimated total: $${estimatedTotal} (${form.adults} adult / ${form.children} child)`
       : selectedActivity?.priceLabel ? `Pricing: ${selectedActivity.priceLabel}` : ''
+    const scheduleLabel = isBoat && form.departureTime
+      ? BOAT_SCHEDULES.find(s => s.id === form.departureTime)?.label
+      : ''
     return `Hi! I'd like to book ${selectedActivity ? selectedActivity.name : form.activity}.\n` +
-      `Date: ${form.date}\nAdults: ${form.adults}  Children: ${form.children}\n` +
+      `Date: ${form.date}${scheduleLabel ? `\nDeparture: ${scheduleLabel}` : ''}\n` +
+      `Adults: ${form.adults}  Children: ${form.children}\n` +
       `${priceLine ? priceLine + '\n' : ''}` +
       `Name: ${form.firstName} ${form.lastName}\nPhone: ${form.phone}${form.email ? `\nEmail: ${form.email}` : ''}` +
       (form.notes ? `\nNotes: ${form.notes}` : '')
@@ -382,6 +387,16 @@ function ActivityBookingForm({ initialActivity }) {
             <input type="number" name="adults" min="1" value={form.adults} onChange={handleChange} className={styles.input} />
           </div>
         </div>
+
+        {isBoat && (
+          <div className={styles.field}>
+            <label className={styles.label}>Departure Time</label>
+            <select name="departureTime" value={form.departureTime} onChange={handleChange} className={styles.input}>
+              <option value="">Any time</option>
+              {BOAT_SCHEDULES.map(s => <option key={s.id} value={s.id}>{s.label}</option>)}
+            </select>
+          </div>
+        )}
 
         {hasAgePricing && (
           <div className={styles.field}>
