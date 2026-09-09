@@ -57,7 +57,7 @@ export function ActivitiesSection({ showAll = false }) {
 
 function ActivityCard({ activity }) {
   const localImage = `/images/activities/${activity.id}.jpg`
-  const price = activity.priceLabel || (activity.priceAdult ? `$${activity.priceAdult} adult` : 'Ask for pricing')
+  const price = activity.priceLabel || (activity.priceAdult ? `$${activity.priceAdult} adult` : 'Offered by us')
 
   return (
     <div className={styles.card}>

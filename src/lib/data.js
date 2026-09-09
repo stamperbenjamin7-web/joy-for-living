@@ -73,17 +73,6 @@ export const BOATS = [
     highlights: ['Snorkel gear included', 'Water slide', 'Onboard music'],
   },
   {
-    id: 'sail-away',
-    category: 'sailing',
-    name: 'Sail Away',
-    emoji: '🚤',
-    image: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&q=80&fit=crop',
-    description: 'Sail Away takes you along the coast for snorkeling, swinging and swimming stops.',
-    priceAdult: 70, priceChild: 50, priceLabel: '$70 adult · $50 child',
-    duration: '~3 hours',
-    highlights: ['Rope swing', 'Snorkel stop', 'Family friendly'],
-  },
-  {
     id: 'locura',
     category: 'sailing',
     name: 'Locura',
@@ -103,7 +92,6 @@ export const BOATS = [
     // Pirate-ship style sailing photo — swap for a real photo at public/images/activities/jolly-pirates.jpg
     image: 'https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=800&q=80&fit=crop',
     description: 'Board the Jolly Pirates ship for a fun-filled snorkel sail with rope swings and slides.',
-    priceAdult: 70, priceChild: 50, priceLabel: '$70 adult · $50 child',
     duration: '~3 hours',
     highlights: ['Pirate-ship experience', 'Rope swing & slide', 'Snorkel stop'],
   },
@@ -244,53 +232,3 @@ export const TESTIMONIALS = [
     avatar: 'ED',
   },
 ]
-
-// ─── Capability Map ─────────────────────────────────────────────────────────────
-export const CAPABILITY_MAP = {
-  core: [
-    {
-      area: 'Beach Delivery Reservations',
-      icon: '🏖️',
-      description: 'Online reservations for chair & umbrella delivery with a card deposit',
-      capabilities: ['Delivery address form', 'Setup add-on', '$10 card deposit via Stripe', 'WhatsApp confirmation'],
-      status: 'done',
-    },
-    {
-      area: 'Activity Booking',
-      icon: '🏄',
-      description: 'Digital catalog of boats, watersports, fishing & tours with real pricing',
-      capabilities: ['Activity catalog', 'Category filtering', 'Pricing information', 'WhatsApp booking'],
-      status: 'done',
-    },
-    {
-      area: 'Customer Communication',
-      icon: '💬',
-      description: 'Multi-channel communication with guests',
-      capabilities: ['WhatsApp integration', 'Email notifications', 'Contact form', 'Social media links'],
-      status: 'done',
-    },
-  ],
-  support: [
-    {
-      area: 'Digital Presence',
-      icon: '🌐',
-      description: 'Professional web platform replacing social media-only presence',
-      capabilities: ['Responsive website', 'SEO optimization', 'Social media integration', 'Brand consistency'],
-      status: 'done',
-    },
-    {
-      area: 'Payments',
-      icon: '💳',
-      description: 'Online deposit processing for beach rental reservations',
-      capabilities: ['Stripe Checkout', 'Card deposits', 'Secure hosted payment page', 'Balance due on delivery'],
-      status: 'done',
-    },
-    {
-      area: 'Authentication',
-      icon: '🔐',
-      description: 'User login and account management',
-      capabilities: ['Google OAuth', 'User profiles', 'Booking history', 'Saved preferences'],
-      status: 'optional',
-    },
-  ],
-}

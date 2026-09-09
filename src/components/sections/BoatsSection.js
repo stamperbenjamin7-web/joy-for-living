@@ -13,8 +13,8 @@ export function BoatsSection() {
             Sailing &amp;<br /><em>Snorkeling</em>
           </h2>
           <p className={styles.intro}>
-            Five boats to choose from — every trip includes a snorkeling stop along
-            Aruba&apos;s calm turquoise coast. <strong>$70 per adult · $50 per child</strong> (under 10).
+            Choose your boat — every trip includes a snorkeling stop along
+            Aruba&apos;s calm turquoise coast.
           </p>
         </div>
 
@@ -37,7 +37,9 @@ export function BoatsSection() {
                 <div className={styles.name}>{boat.emoji} {boat.name}</div>
                 <p className={styles.desc}>{boat.description}</p>
                 <div className={styles.footer}>
-                  <span className={styles.price}>{boat.priceLabel}</span>
+                  {boat.priceLabel
+                    ? <span className={styles.price}>{boat.priceLabel}</span>
+                    : <span className={styles.price}>Offered by us</span>}
                   <Link href={`/booking?activity=${boat.id}`} className={styles.bookBtn}>Book</Link>
                 </div>
               </div>

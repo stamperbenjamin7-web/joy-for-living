@@ -1,3 +1,4 @@
+import { CascadeImage } from '../ui/CascadeImage'
 import styles from './AboutSection.module.css'
 
 export function AboutSection() {
@@ -40,6 +41,14 @@ export function AboutSection() {
 
           <div className={styles.visual}>
             <div className={styles.cardMain}>
+              <CascadeImage
+                src="/images/about.jpg"
+                remoteSrc="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1200&q=80&fit=crop"
+                alt="Aerial view of Palm Beach, Aruba"
+                className={styles.cardMainImg}
+                hasFallbackSibling={false}
+              />
+              <div className={styles.cardMainOverlay} />
               <div className={styles.cardEmoji}>🌊</div>
               <div className={styles.cardLabel}>Caribbean Adventures</div>
             </div>

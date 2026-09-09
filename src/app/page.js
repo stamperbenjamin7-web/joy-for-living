@@ -4,7 +4,6 @@ import { ActivitiesSection }  from '../components/sections/ActivitiesSection'
 import { BoatsSection }       from '../components/sections/BoatsSection'
 import { AboutSection }       from '../components/sections/AboutSection'
 import { TestimonialsSection } from '../components/sections/TestimonialsSection'
-import { CapabilityMap }      from '../components/sections/CapabilityMap'
 
 export default function HomePage() {
   return (
@@ -15,7 +14,6 @@ export default function HomePage() {
       <BoatsSection />
       <AboutSection />
       <TestimonialsSection />
-      <CapabilityMap />
     </>
   )
 }

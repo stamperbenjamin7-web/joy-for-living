@@ -363,7 +363,7 @@ function ActivityBookingForm({ initialActivity }) {
           {errors.activity && <span className={styles.error}>{errors.activity}</span>}
           {selectedActivity && (
             <span className={styles.priceHint}>
-              {selectedActivity.priceLabel || `$${selectedActivity.priceAdult} adult`}
+              {selectedActivity.priceLabel || (selectedActivity.priceAdult ? `$${selectedActivity.priceAdult} adult` : 'Offered by us')}
             </span>
           )}
         </div>
