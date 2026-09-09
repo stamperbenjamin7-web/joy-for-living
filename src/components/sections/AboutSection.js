@@ -48,9 +48,6 @@ export function AboutSection() {
                 className={styles.cardMainImg}
                 hasFallbackSibling={false}
               />
-              <div className={styles.cardMainOverlay} />
-              <div className={styles.cardEmoji}>🌊</div>
-              <div className={styles.cardLabel}>Caribbean Adventures</div>
             </div>
             <div className={styles.cardAccent}>
               <span className={styles.accentEmoji}>☀️</span>
