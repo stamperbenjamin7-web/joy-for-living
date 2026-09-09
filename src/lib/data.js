@@ -10,12 +10,6 @@ export const COMPANY = {
   facebook: 'https://facebook.com/joyforlivingaruba',
 }
 
-function waLink(message) {
-  return `https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent(message)}`
-}
-
-export { waLink }
-
 // ─── Beach Chair & Umbrella Delivery ───────────────────────────────────────────
 // This is the flagship offer: we deliver (and optionally set up) beach chairs
 // and umbrellas directly to the guest's hotel spot or beach location.

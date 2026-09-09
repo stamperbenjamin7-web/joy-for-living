@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { BEACH_RENTAL } from '../../lib/data'
+import { BEACH_RENTAL, COMPANY } from '../../lib/data'
 import { CascadeImage } from '../ui/CascadeImage'
 import styles from './BeachRentalSection.module.css'
 
@@ -55,7 +55,7 @@ export function BeachRentalSection() {
                 Reserve &amp; Pay Deposit →
               </Link>
               <a
-                href={`https://wa.me/2976610531?text=${encodeURIComponent('Hi! I\'d like to reserve a beach umbrella + 2 chairs for delivery.')}`}
+                href={`https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent('Hi! I\'d like to reserve a beach umbrella + 2 chairs for delivery.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.btnOutline}
