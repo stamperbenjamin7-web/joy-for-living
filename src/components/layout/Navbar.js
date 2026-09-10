@@ -25,8 +25,8 @@ export function Navbar() {
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.inner}>
-        <Link href="/" className={styles.logo}>
-          Joy <span>For Living</span>
+        <Link href="/" className={styles.logo} aria-label="Joy For Living — Watersports & Activities">
+          <img src="/images/logo.png" alt="" className={styles.logoImg} />
         </Link>
 
         <ul className={`${styles.links} ${menuOpen ? styles.open : ''}`}>

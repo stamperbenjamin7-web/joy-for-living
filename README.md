@@ -21,53 +21,38 @@
 | Campo | Detalle |
 |---|---|
 | **Nombre** | Joy For Living Watersports & Activities |
-| **Ubicación** | Oranjestad, Aruba, Antillas Neerlandesas |
+| **Ubicación** | Palm Beach, Aruba — C Tower, Holiday Inn Aruba |
 | **Sector** | Turismo · Actividades recreativas |
 | **Modelo de negocio** | B2C – servicios directos a turistas |
 
 ### Descripción
 
-Joy For Living es una empresa turística ubicada en Aruba especializada en actividades acuáticas, tours de la isla, alquileres de playa y experiencias recreativas para turistas internacionales. Actualmente opera principalmente a través de WhatsApp, reservas manuales y redes sociales.
+Joy For Living es una empresa turística ubicada en Palm Beach, Aruba, especializada en delivery de sillas y sombrillas de playa, deportes acuáticos, tours de la isla y experiencias recreativas para turistas internacionales. Antes operaba solo por WhatsApp y redes sociales.
 
-**Objetivo de digitalización:** Migrar sus procesos de reservas manuales a una plataforma web profesional que permita a los clientes conocer servicios, ver precios, contactar fácilmente y realizar reservas online.
+**Objetivo de digitalización:** Ofrecer una plataforma web profesional donde los clientes puedan conocer los servicios, ver precios reales, reservar la entrega de sillas/sombrillas con depósito por tarjeta, y coordinar el resto de actividades por WhatsApp.
 
 ---
 
-## 🗺️ Mapa de Capacidades
+## 🗺️ Servicios cubiertos por la aplicación
 
-### Capacidades Core
+#### 🏖️ Delivery de Sillas y Sombrillas (servicio insignia)
+- 1 sombrilla pequeña + 2 sillas de playa entregadas en el hotel/playa: **$25**
+- Instalación por nuestro equipo (incluye delivery): **+$10**
+- Reserva en línea con depósito de **$10 con tarjeta** (PayPal Checkout); el resto se paga al entregar
 
-| Área | Descripción | Estado |
-|---|---|---|
-| **Gestión de Reservas** | Sistema de reservas online que reemplaza WhatsApp y hojas de cálculo | 🟡 En progreso |
-| **Catálogo de Actividades** | Catálogo digital de 20+ actividades con descripciones y horarios | ✅ Implementado |
-| **Comunicación con Clientes** | Multi-canal: WhatsApp, email, formulario de contacto | ✅ Implementado |
+#### ⛵ Sailing & Snorkeling
+- Botes: Dolphin, Sunshine, Locura ($70 adulto · $50 niño menor de 10), Jolly Pirates (ofrecido sin precio publicado)
 
-### Capacidades de Soporte
+#### 🌊 Watersports
+- Tube Rides ($30/persona) · Parasailing ($70/persona)
+- Jet Skis / Waverunners ($70 individual · $80 doble)
+- Kayaks ($35/hora) · Paddle Board ($25/hora)
 
-| Área | Descripción | Estado |
-|---|---|---|
-| **Presencia Digital** | Plataforma web profesional con SEO y consistencia de marca | ✅ Implementado |
-| **Pagos Online** | Stripe, PayPal, tarjetas de crédito/débito | 📅 Planificado |
-| **Autenticación** | Login con Google OAuth, perfiles, historial de reservas | 
+#### 🎣 Fishing
+- Bottom Fishing · Deep Sea Fishing
 
-### Servicios cubiertos por la aplicación
-
-#### 🌊 Deportes Acuáticos
-- Snorkeling (con horarios específicos: 9AM, 1PM, 4:30PM)
-- Scuba Diving · Jet Ski · Parasailing
-- Banana Boat · Tube Rides · Paddle Board · Kayak · Windsurf
-
-#### 🏍️ Tours Terrestres
-- UTV Tours · ATV Tours · Jeep Safari
-- Bus Tours · Private Tours
-
-#### ⛵ Tours Marítimos
-- Catamaran Trips · Boat Trips
-- Deep Sea Fishing · Bottom Fishing
-
-#### 🏖️ Servicios de Playa
-- Beach Chair Rental · Umbrella Rental
+#### 🏍️ Land Tours
+- Jeep Tours · UTV Tours
 
 ---
 
@@ -81,7 +66,8 @@ Joy For Living es una empresa turística ubicada en Aruba especializada en activ
 | **React** | 18 | Biblioteca de UI |
 | **JavaScript** | ES2023 | Lenguaje de programación |
 | **CSS Modules** | – | Estilos con scope local |
-| **next-auth** | 4.x | Autenticación Google  |
+| **PayPal REST API** | v2 (Orders) | Depósito con tarjeta para el delivery de sillas/sombrillas — funciona en Aruba, a diferencia de Stripe |
+| **next-auth** | 4.x | Dependencia instalada para login con Google (aún no conectada) |
 
 ### Arquitectura del proyecto
 
@@ -90,48 +76,55 @@ joy-for-living/
 ├── src/
 │   ├── app/                    # App Router de Next.js
 │   │   ├── layout.js           # Layout raíz (Navbar + Footer + WhatsApp)
+│   │   ├── icon.png            # Favicon (generado del logo real)
 │   │   ├── page.js             # Página principal (Home)
+│   │   ├── api/
+│   │   │   └── paypal/
+│   │   │       ├── create-order/route.js   # Crea la orden de PayPal para el depósito
+│   │   │       └── capture-order/route.js  # Confirma el pago tras volver de PayPal
 │   │   ├── activities/
 │   │   │   └── page.js         # Catálogo completo de actividades
 │   │   ├── booking/
-│   │   │   └── page.js         # Sistema de reservas
+│   │   │   ├── page.js         # Sistema de reservas
+│   │   │   └── success/page.js # Confirmación tras pagar el depósito
 │   │   └── contact/
 │   │       └── page.js         # Página de contacto
 │   ├── components/
 │   │   ├── layout/
-│   │   │   ├── Navbar.js       # Navegación con mobile menu
+│   │   │   ├── Navbar.js       # Navegación con mobile menu y logo real
 │   │   │   └── Footer.js       # Pie de página
 │   │   ├── sections/
-│   │   │   ├── HeroSection.js          # Sección hero animada
+│   │   │   ├── HeroSection.js          # Hero con foto real traslúcida
+│   │   │   ├── BeachRentalSection.js   # Delivery de sillas/sombrillas (servicio insignia)
+│   │   │   ├── ActivitiesSection.js    # Grid de actividades con filtros y precios reales
+│   │   │   ├── BoatsSection.js         # Botes de sailing & snorkeling
 │   │   │   ├── AboutSection.js         # Sobre la empresa
-│   │   │   ├── ActivitiesSection.js    # Grid de actividades con filtros
-│   │   │   ├── SnorkelingSection.js    # Horarios de snorkeling
 │   │   │   ├── TestimonialsSection.js  # Testimonios
-│   │   │   ├── CapabilityMap.js        # Mapa de capacidades
-│   │   │   ├── BookingSection.js       # Formulario de reservas
+│   │   │   ├── BookingSection.js       # Reservas (delivery con depósito / actividades por WhatsApp)
 │   │   │   └── ContactSection.js       # Información de contacto
 │   │   └── ui/
+│   │       ├── CascadeImage.js         # Foto local → foto de stock → emoji
 │   │       └── WhatsAppFloat.js        # Botón flotante WhatsApp
 │   ├── lib/
-│   │   ├── data.js             # Datos centralizados (actividades, empresa)
+│   │   ├── data.js             # Datos centralizados (empresa, actividades, precios)
 │   │   └── useReveal.js        # Hook personalizado para animaciones
 │   └── styles/
 │       └── globals.css         # Variables CSS + estilos globales
-└── public/                     # Activos estáticos
+└── public/images/              # Fotos reales del negocio (ver public/images/README.md)
 ```
 
 ### Funcionalidades implementadas
 
-- ✅ **Landing page** completa con hero animado y estadísticas
-- ✅ **Catálogo de 20 actividades** con filtros por categoría (Water, Land, Sea, Beach)
-- ✅ **Horarios de Snorkeling** (9AM / 1PM / 4:30PM con ubicaciones)
-- ✅ **Formulario de reservas** con validación, selección de actividad, fecha y horarios
-- ✅ **Mapa de capacidades** visual del Prácticum 3
+- ✅ **Delivery de sillas y sombrillas** con depósito de $10 por tarjeta (PayPal Checkout) y respaldo por WhatsApp
+- ✅ **Landing page** completa con hero traslúcido sobre foto real
+- ✅ **Catálogo de actividades** con filtros por categoría y precios reales
+- ✅ **Botes de sailing & snorkeling** con fotos reales
+- ✅ **Formulario de reservas** con validación, selección de actividad, fecha y cálculo de precio estimado
 - ✅ **Página de contacto** con cards de WhatsApp, email y ubicación
-- ✅ **Navbar responsivo** con menú mobile
+- ✅ **Navbar y footer** con el logo real de la empresa
 - ✅ **Botón flotante de WhatsApp** con animación de pulso
 - ✅ **Diseño 100% responsive** (mobile-first)
-- ✅ **Rutas múltiples**: `/`, `/activities`, `/booking`, `/contact`
+- ✅ **Rutas múltiples**: `/`, `/activities`, `/booking`, `/booking/success`, `/contact`
 - ✅ **CSS Modules** para estilos encapsulados
 - ✅ **Custom hook** `useReveal` para animaciones on-scroll
 - ✅ **Metadata SEO** en cada página
@@ -172,15 +165,27 @@ npm run start    # Servidor de producción (tras npm run build)
 npm run lint     # Linter ESLint
 ```
 
-### Variables de entorno (opcional – para login con Google)
+### Variables de entorno
 
-Crear un archivo `.env.local` en la raíz:
+Copiar `.env.example` a `.env.local` y completar:
 
 ```env
-# Google OAuth 
-GOOGLE_CLIENT_ID=tu_google_client_id
-GOOGLE_CLIENT_SECRET=tu_google_client_secret
-NEXTAUTH_SECRET=una_cadena_secreta_aleatoria
+# Requerido para que el depósito con tarjeta funcione (si no se configura,
+# el sitio cae automáticamente a reserva solo por WhatsApp). Crear una app en
+# https://developer.paypal.com/dashboard/applications
+PAYPAL_CLIENT_ID=tu_client_id_de_paypal
+PAYPAL_CLIENT_SECRET=tu_client_secret_de_paypal
+
+# 'sandbox' (por defecto, para probar) o 'live' con credenciales reales
+PAYPAL_ENV=sandbox
+
+# Opcional — URL pública del sitio desplegado
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
+
+# Opcional — solo si se conecta el login con Google más adelante
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+NEXTAUTH_SECRET=
 NEXTAUTH_URL=http://localhost:3000
 ```
 
@@ -193,12 +198,8 @@ NEXTAUTH_URL=http://localhost:3000
 1. Crear cuenta en [vercel.com](https://vercel.com)
 2. Conectar repositorio de GitHub
 3. Click en **"Import Project"**
-4. Configurar variables de entorno si se usa login con Google
+4. Configurar `PAYPAL_CLIENT_ID`, `PAYPAL_CLIENT_SECRET`, `PAYPAL_ENV=live` (y `NEXT_PUBLIC_BASE_URL` con la URL final) para que el depósito con tarjeta funcione en producción
 5. Click **"Deploy"**
-
-### URL de la aplicación desplegada
-
-> 🔗 **[https://joy-for-living.vercel.app](https://joy-for-living.vercel.app)**  
 
 
 ---
@@ -207,9 +208,10 @@ NEXTAUTH_URL=http://localhost:3000
 
 | Ruta | Descripción |
 |---|---|
-| `/` | Home – Hero, About, Actividades, Snorkeling, Testimonios, Mapa de Capacidades |
+| `/` | Home – Hero, Delivery de sillas/sombrillas, Actividades, Botes, About, Testimonios |
 | `/activities` | Catálogo completo con filtros por categoría |
-| `/booking` | Formulario de reservas con validación |
+| `/booking` | Reservas: delivery con depósito por tarjeta, o actividades por WhatsApp |
+| `/booking/success` | Confirmación tras pagar el depósito de la reserva |
 | `/contact` | Información de contacto y redes sociales |
 
 ---

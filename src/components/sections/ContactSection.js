@@ -1,4 +1,5 @@
 import { COMPANY } from '../../lib/data'
+import { CascadeImage } from '../ui/CascadeImage'
 import styles from './ContactSection.module.css'
 
 export function ContactSection() {
@@ -14,6 +15,19 @@ export function ContactSection() {
             Have questions about an activity? Ready to book? Want a custom private tour?
             We&apos;d love to hear from you.
           </p>
+        </div>
+
+        <div className={styles.locationBanner}>
+          <CascadeImage
+            src="/images/location.jpg"
+            alt="Our beach chairs, umbrellas and watersports kiosk on Palm Beach, in front of the Holiday Inn Aruba"
+            className={styles.locationImg}
+            hasFallbackSibling={false}
+          />
+          <div className={styles.locationCaption}>
+            <span className={styles.locationPin}>📍</span>
+            Right here on Palm Beach — look for our kiosk between the sand and the pool
+          </div>
         </div>
 
         <div className={styles.cards}>
@@ -44,9 +58,9 @@ export function ContactSection() {
           <div className={styles.card}>
             <div className={styles.cardIcon}>📍</div>
             <h3>Location</h3>
-            <p className={styles.highlight}>Aruba</p>
-            <p>Dutch Caribbean<br />One Happy Island</p>
-            <span className={styles.cardCta}>One Happy Island</span>
+            <p className={styles.highlight}>Palm Beach, Aruba</p>
+            <p>C Tower, Holiday Inn Aruba<br />One Happy Island</p>
+            <span className={styles.cardCta}>Find Us on the Beach</span>
           </div>
         </div>
 

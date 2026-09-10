@@ -9,8 +9,8 @@ export function Footer() {
     <footer className={styles.footer}>
       <div className={styles.inner}>
         <div className={styles.brand}>
-          <div className={styles.logo}>Joy <span>For Living</span></div>
-          <p className={styles.tagline}>Watersports & Activities<br />Aruba, Dutch Caribbean</p>
+          <img src="/images/logo.png" alt="Joy For Living — Watersports & Activities" className={styles.logoImg} />
+          <p className={styles.tagline}>Palm Beach, Aruba<br />C Tower, Holiday Inn Aruba</p>
         </div>
 
         <nav className={styles.nav}>
