@@ -7,7 +7,7 @@ export const COMPANY = {
   whatsappDisplay: '+297 661 0531',
   email: 'joyforlivingwatersports@gmail.com',
   instagram: 'https://instagram.com/joyforlivingaruba',
-  facebook: 'https://facebook.com/joyforlivingaruba',
+  facebook: 'https://www.facebook.com/profile.php?id=61594031201930',
 }
 
 // ─── Beach Chair & Umbrella Delivery ───────────────────────────────────────────
